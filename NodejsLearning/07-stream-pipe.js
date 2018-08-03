@@ -1,10 +1,6 @@
 // Node.js的流和管道
 
 var fs = require('fs');
-// 加密核心库
-var crypto = require('crypto');
-// 解压缩核心库
-var zlib = require('zlib');
 
 // 创建读取流
 var readstream = fs.createReadStream(__dirname + '/05-readme.txt', 'utf8');
