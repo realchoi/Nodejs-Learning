@@ -2,10 +2,10 @@
 
 var fs = require('fs');
 
-var route = function (url, handle, response) {
+var route = function (url, handle, response, params) {
     console.log('url: ' + url);
     if (typeof (handle[url]) === 'function') {
-        handle[url](response);
+        handle[url](response, params);
     } else {
         response.writeHead(404, { 'Content-Type': 'text/html' });
         fs.createReadStream(__dirname + '/404.html', 'utf8').pipe(response);
