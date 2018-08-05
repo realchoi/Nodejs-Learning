@@ -11,8 +11,16 @@
 <body>
     <h1>
         <!-- 获取从后端传递的数据 -->
-        <%= person %>
+        <%= data.name %>的业余爱好：
     </h1>
+    <!-- 循环出对象的值 -->
+    <ul>
+        <% data.Hobbies.forEach(function(item){ %>
+            <li>
+                <%= item %>
+            </li>
+            <%  }) %>
+    </ul>
 </body>
 
 </html>

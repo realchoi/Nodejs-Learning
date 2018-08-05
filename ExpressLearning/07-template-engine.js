@@ -11,11 +11,16 @@ app.set('views', './07-views');
 
 // 访问form页面
 app.get('/form/:name', function (req, res) {
+    // 可以往后台传递一个字符串
     var personName = req.params.name;
+
+    // 也可以往后台传递一个对象
+    var data = { name: 'Eric', job: 'Programmer', Hobbies: ['Eating', 'Sleeping'] };
+
     // 使用模板引擎渲染页面
     // 'form'指定的是模板引擎的文件名，不用写文件格式后缀
     // person是传递到模板引擎的参数名称
-    res.render('form', { person: personName });
+    res.render('form', { data: data });
 });
 
 app.listen(3000);
