@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    br
+    h1 Add a new article
+    form(action="/articles/create", method="post")
+        //- 如果 article 不为空，表示是验证表单发生错误时传递过来的已经输入的内容
+        if article
+            .form-group
+                label Title:
+                input.form-control(type="text", name="title", value=article.title)
+            .form-group
+                label Author:
+                input.form-control(type="text", name="author", value=article.author)
+            .form-group
+                label Body:
+                textarea.form-control(name="body")= value=article.body
+        //- 否则就是刚刚打开增加文章的时候，没有任何内容
+        else
+            .form-group
+                label Title:
+                input.form-control(type="text", name="title")
+            .form-group
+                label Author:
+                input.form-control(type="text", name="author")
+            .form-group
+                label Body:
+                textarea.form-control(name="body")
+        br
+        input.btn.btn-primary(type="submit", value="Submit")

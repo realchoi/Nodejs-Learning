@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    br
+    h1 Register a user
+    form(action="/users/register", method="post")
+        //- 如果 user 不为空，表示是验证表单发生错误时传递过来的已经输入的内容
+        if user
+            .form-group
+                label Username:
+                input.form-control(type="text", name="username", value=user.username)
+            .form-group
+                label Email:
+                input.form-control(type="text", name="email", value=user.email)
+            .form-group
+                label Password:
+                input.form-control(type="password", name="password")
+            .form-group
+            label Password confirmation:
+            input.form-control(type="password", name="password_confirmation")
+        //- 否则就是刚刚打开注册用户的时候，没有任何内容
+        else
+            .form-group
+                label Username:
+                input.form-control(type="text", name="username")
+            .form-group
+                label Email:
+                input.form-control(type="text", name="email")
+            .form-group
+                label Password:
+                input.form-control(type="password", name="password")
+            .form-group
+                label Password confirmation:
+                input.form-control(type="password", name="password_confirmation")
+        br
+        input.btn.btn-primary(type="submit", value="Submit")
